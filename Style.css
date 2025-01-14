@@ -1,3 +1,6 @@
-#parent {
+.heading {
     color: red;
+}
+#title {
+    color: blue;
 }
