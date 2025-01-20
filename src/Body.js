@@ -4,13 +4,15 @@ import { resList } from "./utils/mockdata";
 import { useState } from "react";
 
 const Body = () => {
-    /* const arr = useState(resList);
-    const restaurantList = arr[0];
-    const setRsetRestaurantList = arr[1]; */
     const [restaurantList, setRestaurantList] = useState(resList);
+    const [searchRestaurant, setSearchRestaurant] = useState("Search Restaurant Name");
     return (
         <div className="body">
-            <div>
+            <div className="pickle-customization">
+                <div className="pickle-search">
+                    <input type="text" placeholder={searchRestaurant} onChange={(e) => setSearchRestaurant(e.target.value)} />
+                    <button type="submit">Search</button>
+                </div>
                 <div className="pickle-rating-filter" onClick={() => {
                     const modifiedRestaurantList = restaurantList.filter((res) => res.info.avgRating >= 4.5);
                     setRestaurantList(modifiedRestaurantList);
