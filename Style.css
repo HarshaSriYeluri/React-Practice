@@ -1,17 +1,18 @@
 body {
-    margin: 0;
+    margin: 0 20px;
 }
 .header {
     display: flex;
     align-items: center;
     gap: 5%;
+    height: 90px;
 }
 .header .logo {
-    width: 200px;
+    width: 120px;
     cursor: pointer;
 }
 .header .nav-items {
-    font-size: 20px;
+    font-size: 16px;
     list-style: none;
     display: flex;
     align-items: center;
@@ -27,16 +28,20 @@ body {
     box-sizing: border-box;
     cursor: pointer;
 }
-.body {
-    margin: 0 20px;
-}
 .pickle-cards {
-    display: flex;
-    flex-flow: wrap;
-    justify-content: space-evenly;
+    grid-gap: 15px;
+    grid-template-columns: repeat(auto-fill, 180px);
+    justify-content: space-between;
+    height: calc(100% - 50px);
+    display: grid;
+    overflow: hidden scroll;
+    padding: 5px;
+}
+.pickle-cards::-webkit-scrollbar {
+    display: none;
 }
 .pickle-card {
-    width: 220px;
+    width: 180px;
     background-color: rgb(223, 223, 223);
     cursor: pointer;
     margin-bottom: 20px;
@@ -47,7 +52,7 @@ body {
 }
 .pickle-image {
     width: 100%;
-    height: 220px;
+    height: 150px;
     object-fit: cover;
 }
 .pickle-card h3,
@@ -75,10 +80,14 @@ body {
     display: flex;
     margin-bottom: 10px;
     gap: 30px;
+    height: 40px;
 }
 .pickle-search {
     display: flex;
     flex: 1
+}
+.pickle-name {
+    word-break: break-word;
 }
 .pickle-search input {
     flex: 1;
@@ -86,4 +95,70 @@ body {
 }
 .pickle-search button {
     margin-left: -60px;
+}
+.shimmer-card {
+    width: 180px;
+    height: 300px;
+    background-color: #f0f0f0;
+    margin-bottom: 20px;
+}
+.shimmer-container {
+    display: flex;
+    flex-flow: wrap;
+    justify-content: space-around;
+    grid-gap: 15px;
+}
+.login-btn {
+    padding: 12px;
+    cursor: pointer;
+}
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
 }

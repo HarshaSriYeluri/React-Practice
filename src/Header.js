@@ -1,16 +1,24 @@
-import { LOGO_URL, PROFILE_ICON } from "./utils/constants";
+import * as constants from "./utils/constants";
+import { useState } from "react";
+import { Link } from "react-router"
 
 const Header = () => {
+    const [loginBtn, setLoginBtn] = useState('Login');
+    
     return (
         <div className="header">
-            <img className="logo" alt="logo" src={LOGO_URL} />
+            <Link to="/"><img className="logo" alt="logo" src={constants.LOGO_URL} /></Link>
             <ul className="nav-items">
-                <li>About</li>
+                <li><Link to="/">Home</Link></li>
+                <li><Link to="/about">About</Link></li>
                 <li>Gallery</li>
-                <li>Receipes</li>
+                <li><Link to="/receipes">Receipes</Link></li>
             </ul>
             <div>
-                <img className="profile-icon" alt="profile" src={PROFILE_ICON}/>
+                {/* <img className="profile-icon" alt="profile" src={constants.PROFILE_ICON}/> */}
+                <button className="login-btn" onClick={() => (loginBtn === 'Login') ? setLoginBtn('Logout') : setLoginBtn('Login')}>
+                    { loginBtn }
+                </button>
             </div>
         </div>
     )
