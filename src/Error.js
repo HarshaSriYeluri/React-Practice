@@ -1,10 +1,10 @@
 import { useRouteError } from "react-router";
 
-const ErrorMsg = () => {
+const ErrorMsg = (props) => {
     const err = useRouteError();
     console.log(err);
     return (
-        <div>{err.status}</div>
+        <div> <h1>{err.status}</h1> No Page Found</div>
     )
 }
 

@@ -162,3 +162,23 @@ input:checked + .slider:before {
   -ms-transform: translateX(26px);
   transform: translateX(26px);
 }
+
+.restaurant-image {
+    height: 200px;
+    width: 200px;
+    object-fit: cover;
+}
+.menu-item-list {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 5px;
+}
+.menu-item-list img {
+    height: 50px;
+    width: 50px;
+    object-fit: cover;
+}
+.about {
+    border: 1px solid #000;
+    padding: 0 20px;
+}

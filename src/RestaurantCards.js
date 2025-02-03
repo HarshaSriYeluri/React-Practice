@@ -6,7 +6,7 @@ const RestaurantCards = (props) => {
     return (
         <div className="pickle-card">
             <img className="pickle-image" src={IMAGE_URL + cloudinaryImageId} alt="food-item" />
-            <h3 className="pickle-name"><Link to={"/restaurants/" + id}>{name}</Link></h3>
+            <h3 className="pickle-name"><Link to={"/restaurants/" + id} state={{ image: cloudinaryImageId }}>{name}</Link></h3>
             <div className="pickle-ratings">
                 { STAR_ICON }
                 <div><span>{avgRating}</span>{deliveryTime} minutes</div>

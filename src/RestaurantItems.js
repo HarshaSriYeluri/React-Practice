@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router";
-import { RESTAURANT_DATA_URL } from "./utils/constants";
+import { useParams, useLocation } from "react-router";
+import { RESTAURANT_DATA_URL, IMAGE_URL } from "./utils/constants";
 import ShimmerUI from "./ShimmerUI";
 
 const RestaurantItems = () => {
@@ -12,6 +12,8 @@ const RestaurantItems = () => {
     const [ filteredVegList, setFilteredVegList ] = useState('');
     const [ isVeg, setIsVeg ] = useState(false)
     const { resId } = useParams();
+    const { state } = useLocation();
+    const { image } = state || {};
 
     const fetchData = async () => {
         const response = await fetch(RESTAURANT_DATA_URL.replace('$restaurantId$', resId));
@@ -23,6 +25,7 @@ const RestaurantItems = () => {
 
     return (!restaurantInfo) ? <ShimmerUI /> : (
         <div>
+            <img className="restaurant-image" src={IMAGE_URL + image} alt="menu-items" />
             <div>{restaurantInfo.name}</div>
             <div>{restaurantInfo.avgRating} - {restaurantInfo.costForTwoMessage}</div>
             <div>{restaurantInfo.locality}</div>
@@ -48,9 +51,10 @@ const RestaurantItems = () => {
                                         return null;
                                     }
                                     return (
-                                        <p key={menuItem.card.info.id}>
-                                            {menuItem.card.info.name} ({menuItem.card.info.itemAttribute.vegClassifier}) - Rs.{menuItem.card.info.price / 100}/-
-                                        </p>
+                                        <div key={menuItem.card.info.id} className="menu-item-list">
+                                            <img src={IMAGE_URL + menuItem.card.info.imageId} alt="menu-items" />
+                                            <p>{menuItem.card.info.name} ({menuItem.card.info.itemAttribute.vegClassifier}) - Rs.{menuItem.card.info.price / 100}/-</p>
+                                        </div>
                                     );
                                 })}
                             </div>
