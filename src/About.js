@@ -1,5 +1,4 @@
 import React from "react";
-import UserDetails from "./UserDetails";
 
 class About extends React.Component {
     constructor(props) {
@@ -7,20 +6,23 @@ class About extends React.Component {
         this.state = {
             count: 0
         }
-        console.log('parent constructor')
     }
 
     componentDidMount() {
-        console.log('parent componentdidmount');
+        // calls when component render
+    }
+
+    componentDidUpdate() {
+        // calls when component rerender by state changes
     }
 
     componentWillUnmount() {
-        console.log('parent CWUM')
+        // calls when component redirects to another component
     }
 
     render() {
-        console.log('parent render');
         const { count } = this.state;
+        const {name, location, contact} = this.props;
         return (
             <div className="about">
                 <h1>Views: {count} <button onClick={() => {
@@ -28,9 +30,11 @@ class About extends React.Component {
                         count: this.state.count + 1
                     })
                 }} style={{cursor: "pointer"}}>+</button></h1>
-                <UserDetails details={this.props}/>
-                <UserDetails details={{name:"Gupta", location:"Banglore", contact:"9876543210"}}/>
-                
+                <div>
+                    <h1>Name: {name}</h1>
+                    <h2>Location: {location}</h2>
+                    <h3>Contact: {contact}</h3>
+                </div>
             </div>
         )
     }
