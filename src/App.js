@@ -1,24 +1,29 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import ReactDOM from "react-dom/client";
 
 import Header from "./Header";
-import RestaurantsList from "./RestaurantsList";
+// import RestaurantsList from "./RestaurantsList";
 import About from "./About";
 import Receipes from "./Receipes";
 import RestaurantItems from "./RestaurantItems";
 
+import useOnlineStatus from "./utils/useOnlineStatus";
 
 import ErrorMsg from "./Error";
 
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router";
 
+
+const RestaurantsList = lazy(()=>import("./RestaurantsList"));
+
 const App = () => {
-    return (
+    const onlineStatus = useOnlineStatus();
+    return onlineStatus ? (
         <div>
             <Header />
             <Outlet />
         </div>
-    )
+    ): <h1>Please Check Internet</h1>
 }
 
 const appRouter = createBrowserRouter([
@@ -28,11 +33,15 @@ const appRouter = createBrowserRouter([
         children: [
             {
                 path: "/",
-                element: <RestaurantsList />   
+                element: <About contact="7731072337"/>   
             },
             {
-                path: "/about",
-                element: <About name="SriHarshaYeluri" location="Hyderabad" contact="7731072337"/>   
+                path: "/home",
+                element: (
+                    <Suspense fallback={<h1>Loading...</h1>}>
+                        <RestaurantsList />
+                    </Suspense>
+                )
             },
             {
                 path: "/receipes",

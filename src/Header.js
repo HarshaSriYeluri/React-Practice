@@ -9,8 +9,8 @@ const Header = () => {
         <div className="header">
             <Link to="/"><img className="logo" alt="logo" src={constants.LOGO_URL} /></Link>
             <ul className="nav-items">
-                <li><Link to="/">Home</Link></li>
-                <li><Link to="/about">About</Link></li>
+                <li><Link to="/home">Home</Link></li>
+                <li><Link to="/">About</Link></li>
                 <li>Gallery</li>
                 <li><Link to="/receipes">Receipes</Link></li>
             </ul>

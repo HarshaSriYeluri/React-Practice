@@ -4,7 +4,7 @@ export const LOGO_URL = "https://www.48hourslogo.com/48hourslogo_data/2018/09/12
 
 export const PROFILE_ICON = "https://images.rawpixel.com/image_png_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvdjkzNy1hZXctMTM5LnBuZw.png";
 
-export const RESTAURANTS_URL = "https://www.swiggy.com/dapi/restaurants/list/v5?lat=13.0458075&lng=77.5110614&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING";
+export const RESTAURANTS_URL = "https://www.swiggy.com/dapi/restaurants/list/v5?lat=17.406498&lng=78.47724389999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING";
 
 export const RESTAURANT_DATA_URL = "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=21.99740&lng=79.00110&restaurantId=$restaurantId$&catalog_qa=undefined&submitAction=ENTER";
 
@@ -18,3 +18,18 @@ export const STAR_ICON = <svg width="20" height="20" viewBox="0 0 20 20" fill="n
                                 </linearGradient>
                             </defs>
                         </svg>;
+export const NON_VEG_ICON = <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg">
+                                <g>
+                                    <rect x="0" y="0" width="20" height="20" stroke="red" stroke-width="4" fill="none" />
+                                    <circle cx="10" cy="10" r="6" fill="red" />
+                                </g>
+                            </svg>
+export const VEG_ICON = <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg">
+                            <g>
+                                <rect x="0" y="0" width="20" height="20" stroke="green" stroke-width="4" fill="none" />
+                                <circle cx="10" cy="10" r="6" fill="green" />
+                            </g>
+                        </svg>
+                      
+                        
+                      

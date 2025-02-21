@@ -8,7 +8,7 @@ const RestaurantCards = (props) => {
             <img className="pickle-image" src={IMAGE_URL + cloudinaryImageId} alt="food-item" />
             <h3 className="pickle-name"><Link to={"/restaurants/" + id} state={{ image: cloudinaryImageId }}>{name}</Link></h3>
             <div className="pickle-ratings">
-                { STAR_ICON }
+                &#11088;
                 <div><span>{avgRating}</span>{deliveryTime} minutes</div>
             </div>
             <h4 className="pickle-ingrediants">{cuisines.join(", ")}</h4>
@@ -16,5 +16,16 @@ const RestaurantCards = (props) => {
         </div>
     )
 };
+
+export const withPromotedLabel = (RestaurantCard) => {
+    return (props) => {
+        return (
+            <div>
+                <label>Best</label>
+                <RestaurantCard {...props} />
+            </div>
+        )
+    }
+}
 
 export default RestaurantCards;

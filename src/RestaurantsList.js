@@ -1,4 +1,4 @@
-import RestaurantCards from "./RestaurantCards";
+import RestaurantCards, { withPromotedLabel } from "./RestaurantCards";
 import ShimmerUI from "./ShimmerUI";
 import { RESTAURANTS_URL, STAR_ICON } from "./utils/constants"
 import { useEffect, useState } from "react";
@@ -13,6 +13,8 @@ const RestaurantsList = () => {
     useEffect(() => {
         fetchData();
     }, [])
+
+    const RestaurantCardPromoted = withPromotedLabel(RestaurantCards);
 
     const fetchData = async () => {
         const response = await fetch(RESTAURANTS_URL);
@@ -93,7 +95,7 @@ const RestaurantsList = () => {
             </div>
             {/* onScroll={handleScroll} */}
             <div className="pickle-cards">
-                { filteredRestaurantList.map((res) => <RestaurantCards key={res.info.id} resProps={res} />) }
+                {filteredRestaurantList.map((res) => res.info.avgRating >= 4.5 ? <RestaurantCardPromoted  key={res.info.id} resProps={res} /> : <RestaurantCards key={res.info.id} resProps={res} />)}
             </div>
         </div>
     )

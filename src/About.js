@@ -17,14 +17,21 @@ class About extends React.Component {
         this.setState({
             profile: json
         })
+        console.log('CDM');
+        /* this.interval = setInterval(() => {
+            console.log('class comp set interval');
+        }, 1000); */
     }
 
     componentDidUpdate() {
         // calls when component rerender by state changes
+        console.log('CDU')
     }
 
     componentWillUnmount() {
         // calls when component redirects to another component
+        console.log('CWUM');
+        // clearInterval(this.interval)
     }
 
     render() {
